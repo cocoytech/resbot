@@ -27,10 +27,10 @@ Options:
 +-- Bot.cs
 +-- Dialogs
 |   +-- MakeReservationDialog.cs
-|   +-- MakeReservationResponses.cs
+|   +-- MakeReservationResponses.cs (generated)
 |   +-- Resources
 |   |   +-- MakeReservationStrings.resx
-|   |   +-- MakeReservationStrings.Designer.resx
+|   |   +-- MakeReservationStrings.Designer.cs (generated)
 ```
 
 
