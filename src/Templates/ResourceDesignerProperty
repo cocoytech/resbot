@@ -1,0 +1,10 @@
+		/// <summary>
+		///  Looks up a localized string similar to '{value}'..
+		/// </summary>
+		public static string {key}
+		{
+			get
+			{
+				return ResourceManager.GetString("{key}", resourceCulture);
+			}
+		}

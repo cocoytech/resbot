@@ -1,0 +1,31 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+
+using {namespace}.Resources;
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.TemplateManager;
+using Microsoft.Bot.Schema;
+
+namespace {namespace}
+{
+	public class {class}Responses : TemplateManager
+	{
+		private static LanguageTemplateDictionary _responseTemplates = new LanguageTemplateDictionary
+		{
+			["default"] = new TemplateIdMap
+			{
+				{languageTemplates}
+			}
+		};
+
+		public {class}Responses()
+		{
+			Register(new DictionaryRenderer(_responseTemplates));
+		}
+
+		public class ResponseIds
+		{
+			{responseIds}
+		}
+	}
+}

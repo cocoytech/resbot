@@ -1,0 +1,3 @@
+dotnet pack
+dotnet tool uninstall --global resbot
+dotnet tool install --global --add-source ./nupkg resbot

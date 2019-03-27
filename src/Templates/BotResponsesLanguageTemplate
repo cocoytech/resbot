@@ -1,0 +1,7 @@
+			{ ResponseIds.{keyProper},
+				(context, data) =>
+				MessageFactory.Text(
+					text: {class}.{key},
+					ssml: {class}.{key},
+					inputHint: InputHints.{inputType})
+			}
