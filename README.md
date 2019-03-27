@@ -42,6 +42,6 @@ resbot --dialogsPath /Dialogs --namespace MyCompany.Bot --dialogName MakeReserva
 
 ### Output
 
-This [`/Resources/MakeReservationStrings.resx resource file`](https://gist.github.com/rob-derosa/2ec378c3b312ee89b2e7c953d1d5e4c9) will generate these files:
+This [`/Resources/MakeReservationStrings.resx` resource file](https://gist.github.com/rob-derosa/2ec378c3b312ee89b2e7c953d1d5e4c9) will generate these files:
   - [`/Resources/MakeReservationStrings.Designer.cs`](https://gist.github.com/rob-derosa/f9037cd372578441aaadd45538d957b6)
   - [`MakeReservationResponses.cs`](https://gist.github.com/rob-derosa/e8b9360bc79c90f67b6ba1f0dc32af61)
