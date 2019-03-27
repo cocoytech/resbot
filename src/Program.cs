@@ -11,6 +11,9 @@ namespace resbot
 {
     class Program
     {
+		[Option(Template = "-v --version", Description = "Gets the version of resbot")]
+		static bool GetVersion { get; set; }
+
 		[Option(Template = "-r --resxPath", Description = "The path to the resx file.", ValueName = "/Resources/Strings.resx")]
 		static string ResxPath { get; set; }
 
@@ -36,6 +39,13 @@ namespace resbot
 		{
 			try
 			{
+				if(GetVersion)
+				{
+					var v = Assembly.GetEntryAssembly().GetName().Version;
+					Console.WriteLine(v.ToString());
+					return;
+				}
+
 				GenerateResources();
 			}
 			catch (ArgumentNullException e)
