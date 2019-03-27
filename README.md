@@ -2,8 +2,8 @@
 
 resbot is a CLI tool that aids in bot development by performing a few tasks:
 
- - Generates a DialogResponses.cs file for use with the [__template manager__](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-enterprise-template-customize?view=azure-bot-service-4.0#adding-a-new-dialog) pattern used in the [Bot Framework Enterprise Template](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-enterprise-template-overview?view=azure-bot-service-4.0) (optional)
- - Generates the `DialogStrings.Designer.cs` resource backing file when Visual Studio 2017 is not an option (VS Code, Mac, etc) (optional)
+ - Generates a `[Dialog]Responses.cs` file for use with the [__template manager__](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-enterprise-template-customize?view=azure-bot-service-4.0#adding-a-new-dialog) pattern used in the [Bot Framework Enterprise Template](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-enterprise-template-overview?view=azure-bot-service-4.0) (optional)
+ - Generates the `[Dialog]Strings.Designer.cs` resource backing file when Visual Studio 2017 is not an option (VS Code, Mac, etc) (optional)
 
  ### Options
 
