@@ -14,15 +14,8 @@ namespace resbot
 		[Option(Template = "-v --version", Description = "Gets the version of resbot")]
 		static bool GetVersion { get; set; }
 
-		[Option(Template = "-r --resxPath", Description = "The path to the resx file.", ValueName = "/Resources/Strings.resx")]
+		// [Option(Template = "-r --resxPath", Description = "The path to the resx file.", ValueName = "/Resources/Strings.resx")]
 		static string ResxPath { get; set; }
-
-		[Option(Template = "-gr --generateResponses", Description = "Generate a Responses.cs file for use with bot template manager.")]
-		static bool GenerateResponsesFile {get; set; }
-
-		[Option(Template = "-gd --generateDesigner", Description = "Generate a Strings.Designer.cs file for use with bot template manager.")]
-		static bool GenerateDesignerFile {get; set; }
-
 
 		[Option(Template="-dp --dialogsPath", Description="The path to the folder containing all your dialogs.", ValueName="/Dialogs")]
 		static string DialogsPath { get; set; }
@@ -33,7 +26,22 @@ namespace resbot
 		[Option(Template="-dn --dialogName", Description="The name of the dialog.", ValueName="MakeReservation")]
 		static string DialogName { get; set; }
 
-		public static int Main(string[] args) => CommandLineApplication.Execute<Program>(args);
+		[Option(Template = "-gr --generateResponses", Description = "Generate a Responses.cs file for use with bot template manager.")]
+		static bool GenerateBotResponsesFile { get; set; }
+
+		[Option(Template = "-gd --generateDesigner", Description = "Generate a Strings.Designer.cs file for use with bot template manager.")]
+		static bool GenerateDesignerFile { get; set; }
+
+		public static int Main(string[] args)
+		{
+			if(args.Length == 0)
+			{
+				Console.WriteLine("Please supply valid arguments. Run `resbot -h` for a list of options.");
+				return 0;
+			}
+
+			return CommandLineApplication.Execute<Program>(args);
+		}
 
 		void OnExecute()
 		{
@@ -60,6 +68,12 @@ namespace resbot
 
 		static void GenerateResources()
 		{
+			if(!GenerateBotResponsesFile && !GenerateDesignerFile)
+			{
+				Console.WriteLine($"Please supply an option to build either the designer or responses files or both (-gr -gd)");
+				return;
+			}
+
 			var resourcePath = ResxPath ?? Path.Combine(DialogsPath, $"{DialogName}/Resources/{DialogName}Strings.resx");
 			var resources = GetResources(resourcePath);
 
@@ -96,7 +110,7 @@ namespace resbot
 				Console.WriteLine(designerData);
 			}
 
-			if(GenerateResponsesFile)
+			if(GenerateBotResponsesFile)
 			{
 				Console.WriteLine("\r\n");
 				var responsesData = GenerateBotResponses(resources);
